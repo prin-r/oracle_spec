@@ -6,6 +6,8 @@ With the current abstraction, any DeFi module deployed on Acala has access to th
 
 Therefore, we would like to propose the specification for an `OracleRegistry` module, a standardized registry which functions as a hub of all oracle modules on Acala's network. It implements `DataProviderRegistry` trait and allows a collection of `DataProvider` to be assigned and then freely utilized by any DeFi module.
 
+Example Implementation: https://github.com/bandprotocol/band-integration-acala/pull/4/files
+
 This document only consider phase one.
 
 ## Dependency
