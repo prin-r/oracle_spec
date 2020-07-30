@@ -2,16 +2,16 @@
 
 ## Overview
 
-This proposal introduces an implementation of Band Protocol's price oracle module to the Acala Network. The module will act as the main hub from which other modules in the network can query the price information of various tokens and cryptocurrecy from.
+This proposal introduces an implementation of Band Protocol's price oracle module to the Acala Network. The module will act as the main hub from which other modules in the network can query the price information of various tokens and cryptocurrecy from Band Protocol oracle.
 
-The inclusion of this module would first and foremost remove the need for Acala to build their own oracle module, or otherwise to provide incentives for other to do the same. Instead, anyone looking to acquire the price data can rely on Band's implementation to handle the complex mechanics, and they themselves would simply have to submit the proof they receive from BandChain to the module. This signficantly reduces the workload on the modules that are looking to use the pirce data.
+The inclusion of this module would first and foremost be complementary to Acala's currently implemented oracle module. With the introduction of `OracleRegistry`, this module will serve as an option for any DeFi module to access oracle data, allowing it to use Band oracle data as another reference datapoint or as a standalone dependency. Anyone looking to acquire the price data can rely on Band's off-chain oracle to handle the data queries and aggregation logic, and they themselves would simply have to submit the proof generated on BandChain to the module in order to add new datapoint to the Acala's Network. 
 
-We also believe that the addition of such price oracle will have a net positive on Acala's DeFi ecosystem as a whole. The availability of such a price feed could greatly increase the functionalities of many modules, as well as make those that are previously infeasible feasible.
+We believe that the addition of such price oracle will have a net positive on Acala's DeFi ecosystem as a whole.
 
 Implementation-wise, the price oracle module will have three main functionalities:
 
-1. Store price data to state
-2. Expose a function that allows other modules to read values from the store
+1. Validate data relayed from the BandChain and store the price data to state
+2. Expose a function that allows other modules to read price information from the store
 3. Maintain a set of BandChain's validators
 
 This document only consider phase one.
@@ -25,7 +25,7 @@ This document only consider phase one.
 - orml_traits
   - DataProvider
 - proof_verification
-  - // TODO: this crate is not avaliable, so we will create one
+  - // TODO: this crate is not available -- we're working with Chorus One and Interlay team on this
 - obi
   - // TODO: make this crate support non-std
 
