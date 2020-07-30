@@ -1,12 +1,10 @@
-# Band Protocol Oracle Registry (Acala Network)
+# Decentralized Oracle Registry (Acala Network)
 
 ## Overview
 
-the current abstraction implemented into Acala's oracle modules has already enabled any DeFi module to connect to any of the available oracle modules that the module wants. However, it is not currently possible for a module that is using an oracle module to switch the module it is using during runtime. Therefore, a hardfork is the only way to go.
+With the current abstraction, any DeFi module deployed on Acala has access to the `Oracle` module to query the price data retrieved from external sources. Although this works well in a short-term, the lack of incentives for the whitelisted data feeders may become a barrier of entry for new DeFi projects that require new asset prices to operate. Not only having one oracle module will make Acala prone to centralization and data manipulation, but also denial-of-service attacks that may cripple the DeFi functionalities or, in worst case, result in loss of the user funds. Different oracle models and providers are needed on Acala's Network to broaden the data availability and security of the DeFi modules as a whole.
 
-To resolve this issue, we would like to propose Band Protocol's implementation of the oracle registry module, the specification of which we believe will enable the runtime-switching of registries mentioned above. 
-
-Band's oracle registry module will have one main functionality; to be the hub of all oracle modules on Acala's network. Its main aim is to enable any DeFi module to be able to connect to any of the available oracle modules through oracle registry module, and to enable those module to more freely switch the oracle module that it is using, even during runtime.
+Therefore, we would like to propose the specification for an `OracleRegistry` module, a standardized registry which functions as a hub of all oracle modules on Acala's network. It implements `DataProviderRegistry` trait and allows a collection of `DataProvider` to be assigned and then freely utilized by any DeFi module.
 
 This document only consider phase one.
 
